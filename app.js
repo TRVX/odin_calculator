@@ -80,6 +80,8 @@ const clearButton = document.getElementById("clear");
 
 let inputs1Array = []
 let inputs1 = []
+let inputs2Array = []
+let inputs2 = []
 
 digitContainer.addEventListener("click", function displayUpdate(e){
   inputs1Array.push(e.target.id);
@@ -90,7 +92,13 @@ digitContainer.addEventListener("click", function displayUpdate(e){
 operatorContainer.addEventListener("click", function operatorChosen(e){
   let operatorChosen = e.target.id;
   displayOperator.innerHTML = operatorChosen;
-})
+  digitContainer.addEventListener("click", function displayUpdate(e){
+    console.log(inputs1);
+    inputs2Array.push(e.target.id);
+    inputs2 = inputs2Array.join("");
+    displayText.innerHTML = inputs2;
+  });
+});
 
 clearButton.addEventListener("click", function clearDisplay(){
   inputs1Array = [];

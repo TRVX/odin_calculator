@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 5px;
 }
 
@@ -16,4 +16,19 @@
 p {
   font-size: 70px;
   text-align: right;
+} */
+* {
+  margin: 5px;
+}
+
+#display-container {
+  border: 2px solid black;
+  height: 100px;
+  width: 500px;
+  text-align: right;
+}
+
+.digits, .operators, .actions {
+  font-size: 25px;
+  padding: 5px;
 }

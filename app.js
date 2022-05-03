@@ -70,3 +70,29 @@ function operate(operator, n1, n2){
       return null;
   }
 }
+
+const displayText = document.getElementById("display-text");
+const displayOperator = document.getElementById("display-operator");
+const digitContainer = document.getElementById("digits-container");
+const operatorContainer = document.getElementById("operators-container");
+const equalButton = document.getElementById("equal");
+const clearButton = document.getElementById("clear");
+
+let inputs1Array = []
+let inputs1 = []
+
+digitContainer.addEventListener("click", function displayUpdate(e){
+  inputs1Array.push(e.target.id);
+  inputs1 = inputs1Array.join("");
+  displayText.innerHTML = inputs1;
+});
+
+operatorContainer.addEventListener("click", function operatorChosen(e){
+  let operatorChosen = e.target.id;
+  displayOperator.innerHTML = operatorChosen;
+})
+
+clearButton.addEventListener("click", function clearDisplay(){
+  inputs1Array = [];
+  displayText.innerHTML = "";
+})

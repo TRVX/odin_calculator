@@ -21,3 +21,12 @@ function operate(operator, num1, num2){
       console.log("No operator chosen");
   }
 }
+
+const digitInputs = document.getElementById("digit-inputs-container");
+const displayArea = document.getElementById("display-area");
+let storedInputsArray = [];
+
+digitInputs.addEventListener("click", function getId(e){
+  storedInputsArray.push(e.target.id);
+  displayArea.innerHTML = storedInputsArray.join("")
+})

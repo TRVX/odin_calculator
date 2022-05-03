@@ -1,1 +1,10 @@
+#display {
+  border: 1px solid black;
+  height: 100px;
+  width: 500px;
+}
 
+.digit-inputs, .operator-inputs, .equals-input {
+  font-size: 30px;
+  padding: 15px;
+}

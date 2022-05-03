@@ -24,10 +24,17 @@ function operate(operator, num1, num2){
 
 const digitInputs = document.getElementById("digit-inputs-container");
 const displayArea = document.getElementById("display-area");
+const clearInput = document.getElementById("clear-input");
+
 let storedInputsArray = [];
 
 digitInputs.addEventListener("click", function getId(e){
   storedInputsArray.push(e.target.id);
   let storedInputsNum = storedInputsArray.join("")
   displayArea.innerHTML = storedInputsNum;
+});
+
+clearInput.addEventListener("click", function clearDisplay(){
+  storedInputsArray = [];
+  displayArea.innerHTML = "";
 })

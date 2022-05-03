@@ -8,7 +8,7 @@
   width: 500px;
 }
 
-.digit-inputs, .operator-inputs, .equals-input {
+.digit-inputs, .operator-inputs, .equals-input, #clear-input {
   font-size: 30px;
   padding: 15px;
 }

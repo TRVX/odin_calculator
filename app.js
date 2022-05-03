@@ -28,5 +28,6 @@ let storedInputsArray = [];
 
 digitInputs.addEventListener("click", function getId(e){
   storedInputsArray.push(e.target.id);
-  displayArea.innerHTML = storedInputsArray.join("")
+  let storedInputsNum = storedInputsArray.join("")
+  displayArea.innerHTML = storedInputsNum;
 })

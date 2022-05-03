@@ -23,6 +23,7 @@ function operate(operator, num1, num2){
 }
 
 const digitInputs = document.getElementById("digit-inputs-container");
+const operatorInputs = document.getElementById("operator-inputs-container");
 const displayArea = document.getElementById("display-area");
 const clearInput = document.getElementById("clear-input");
 
@@ -34,7 +35,12 @@ digitInputs.addEventListener("click", function getId(e){
   displayArea.innerHTML = storedInputsNum;
 });
 
+operatorInputs.addEventListener("click", function getId(e){
+  let storedInputsOperator = e.target.id;
+  console.log(storedInputsOperator);
+});
+
 clearInput.addEventListener("click", function clearDisplay(){
   storedInputsArray = [];
   displayArea.innerHTML = "";
-})
+});

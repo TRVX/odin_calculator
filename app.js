@@ -30,7 +30,7 @@ const operatorDisplayText = document.getElementById("operator-display-text")
 
 let inputsArray = []
 let inputs = []
-const storedInputs = []
+let storedInputs = []
 
 calculatorDOM.addEventListener("click", function buttonClicked(e){
   let buttonId = e.target.id;
@@ -39,37 +39,19 @@ calculatorDOM.addEventListener("click", function buttonClicked(e){
     inputsArray.push(buttonId);
     inputs = inputsArray.join("");
     numDisplayText.innerHTML = inputs;
-    console.log(inputs);
-    console.log(storedInputs);
   } else if (buttonChosen.contains("operators")) {
     storedInputs.push(inputs);
     inputs = [];
     inputsArray = [];
     operatorDisplayText.innerHTML = buttonId;
   } else if (buttonId === "equal") {
-    numDisplayText.innerHTML = operate(operatorDisplayText.innerHTML, storedInputs[0], inputs);
+    numDisplayText.innerHTML = operate(operatorDisplayText.innerHTML, storedInputs, inputs);
+  } else if (buttonId === "clear") {
+    inputsArray = [];
+    inputs = [];
+    storedInputs = [];
+    numDisplayText.innerHTML = "";
+    operatorDisplayText.innerHTML = "";
   }
 
-})
-
-// digitContainer.addEventListener("click", function displayUpdate(e){
-//   inputs1Array.push(e.target.id);
-//   inputs1 = inputs1Array.join("");
-//   displayText.innerHTML = inputs1;
-// });
-//
-// operatorContainer.addEventListener("click", function operatorChosen(e){
-//   let operatorChosen = e.target.id;
-//   displayOperator.innerHTML = operatorChosen;
-//   digitContainer.addEventListener("click", function displayUpdate(e){
-//     console.log(inputs1);
-//     inputs2Array.push(e.target.id);
-//     inputs2 = inputs2Array.join("");
-//     displayText.innerHTML = inputs2;
-//   });
-// });
-//
-// clearButton.addEventListener("click", function clearDisplay(){
-//   inputs1Array = [];
-//   displayText.innerHTML = "";
-// })
+});

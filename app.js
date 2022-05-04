@@ -25,13 +25,30 @@ function operate(operator, n1, n2){
 }
 
 const calculatorDOM = document.getElementById("calculator");
-const displayText = document.getElementById("display-text");
+const numDisplayText = document.getElementById("num-display-text");
+const operatorDisplayText = document.getElementById("operator-display-text")
 
 let inputsArray = []
 let inputs = []
+const storedInputs = []
 
 calculatorDOM.addEventListener("click", function buttonClicked(e){
-  let buttonChosen = e.target.id;
+  let buttonId = e.target.id;
+  let buttonChosen = e.target.classList
+  if (buttonChosen.contains("digits")){
+    inputsArray.push(buttonId);
+    inputs = inputsArray.join("");
+    numDisplayText.innerHTML = inputs;
+    console.log(inputs);
+    console.log(storedInputs);
+  } else if (buttonChosen.contains("operators")) {
+    storedInputs.push(inputs);
+    inputs = [];
+    inputsArray = [];
+    operatorDisplayText.innerHTML = buttonId;
+  } else if (buttonId === "equal") {
+    numDisplayText.innerHTML = operate(operatorDisplayText.innerHTML, storedInputs[0], inputs);
+  }
 
 })
 
